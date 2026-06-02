@@ -565,6 +565,206 @@ function buildWordProblemQuestions(): MathQuestion[] {
   return addIds("word", drafts);
 }
 
+function buildExamPaperQuestions(): MathQuestion[] {
+  const drafts: QuestionDraft[] = [
+    {
+      type: "100以内简单加减",
+      question: "16 比 9 多多少？",
+      options: numberOptions(7, 1, 0, 20),
+      answer: "7",
+      explanation: "求多多少，用减法：16 - 9 = 7。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "8 比 13 少多少？",
+      options: numberOptions(5, 2, 0, 20),
+      answer: "5",
+      explanation: "求少多少，用较大的数减较小的数：13 - 8 = 5。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "38 比哪个数多 17？",
+      options: numberOptions(21, 3, 0, 100),
+      answer: "21",
+      explanation: "38 比一个数多 17，就是 38 - 17 = 21。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "哪个数比 66 少 22？",
+      options: numberOptions(44, 4, 0, 100),
+      answer: "44",
+      explanation: "比 66 少 22，用减法：66 - 22 = 44。",
+    },
+    {
+      type: "100以内数的认识",
+      question: "一个数的个位上是 2，十位上是 1，这个数是？",
+      options: numberOptions(12, 5, 0, 100),
+      answer: "12",
+      explanation: "十位是 1，表示 1 个十；个位是 2，表示 2 个一，合起来是 12。",
+    },
+    {
+      type: "100以内数的认识",
+      question: "20 根小棒，每 10 根捆成一捆，可以捆成几捆？",
+      options: numberOptions(2, 6, 0, 10),
+      answer: "2",
+      explanation: "20 里面有 2 个 10，所以可以捆成 2 捆。",
+      visual: {
+        caption: "每 10 根一捆",
+        rows: [Array.from({ length: 10 }, () => "丨"), Array.from({ length: 10 }, () => "丨")],
+      },
+    },
+    {
+      type: "100以内简单加减",
+      question: "9 ○ 4 = 13，○ 里填什么？",
+      options: textOptions("+", ["-", "=", "都不是"], 7),
+      answer: "+",
+      explanation: "9 + 4 = 13，所以填加号。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "12 ○ 6 = 18，○ 里填什么？",
+      options: textOptions("+", ["-", "=", "都不是"], 8),
+      answer: "+",
+      explanation: "12 + 6 = 18，所以填加号。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "70 ○ 10 = 60，○ 里填什么？",
+      options: textOptions("-", ["+", "=", "都不是"], 9),
+      answer: "-",
+      explanation: "70 - 10 = 60，所以填减号。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "18 ○ 9 = 9，○ 里填什么？",
+      options: textOptions("-", ["+", "=", "都不是"], 10),
+      answer: "-",
+      explanation: "18 - 9 = 9，所以填减号。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "80 ○ 20 = 60，○ 里填什么？",
+      options: textOptions("-", ["+", "=", "都不是"], 11),
+      answer: "-",
+      explanation: "80 - 20 = 60，所以填减号。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "30 ○ 40 = 70，○ 里填什么？",
+      options: textOptions("+", ["-", "=", "都不是"], 12),
+      answer: "+",
+      explanation: "30 + 40 = 70，所以填加号。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "17 - （ ） = 8，括号里填几？",
+      options: numberOptions(9, 13, 0, 20),
+      answer: "9",
+      explanation: "想 8 加几等于 17，8 + 9 = 17，所以括号里填 9。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "（ ） - 2 = 12，括号里填几？",
+      options: numberOptions(14, 14, 0, 30),
+      answer: "14",
+      explanation: "想几减 2 等于 12，12 + 2 = 14。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "（ ） + 20 = 90，括号里填几？",
+      options: numberOptions(70, 15, 0, 100, 10),
+      answer: "70",
+      explanation: "想几加 20 等于 90，90 - 20 = 70。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "8 + （ ） = 11，括号里填几？",
+      options: numberOptions(3, 16, 0, 20),
+      answer: "3",
+      explanation: "想 8 加几等于 11，8 + 3 = 11。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "10 + （ ） = 84，括号里填几？",
+      options: numberOptions(74, 17, 0, 100),
+      answer: "74",
+      explanation: "想几加 10 等于 84，84 - 10 = 74。",
+    },
+    {
+      type: "100以内简单加减",
+      question: "（ ） - 12 = 30，括号里填几？",
+      options: numberOptions(42, 18, 0, 100),
+      answer: "42",
+      explanation: "想几减 12 等于 30，30 + 12 = 42。",
+    },
+    {
+      type: "大小比较",
+      question: "13 - 8 ○ 47 - 40，○ 里填什么？",
+      options: textOptions("<", [">", "=", "都不是"], 19),
+      answer: "<",
+      explanation: "13 - 8 = 5，47 - 40 = 7，5 小于 7，所以填 <。",
+    },
+    {
+      type: "大小比较",
+      question: "43 + 50 ○ 53 + 40，○ 里填什么？",
+      options: textOptions("=", [">", "<", "都不是"], 20),
+      answer: "=",
+      explanation: "43 + 50 = 93，53 + 40 = 93，两边一样大，所以填 =。",
+    },
+    {
+      type: "大小比较",
+      question: "12 - 8 ○ 18 - 2，○ 里填什么？",
+      options: textOptions("<", [">", "=", "都不是"], 21),
+      answer: "<",
+      explanation: "12 - 8 = 4，18 - 2 = 16，4 小于 16，所以填 <。",
+    },
+    {
+      type: "大小比较",
+      question: "14 - 6 ○ 60 - 50，○ 里填什么？",
+      options: textOptions("<", [">", "=", "都不是"], 22),
+      answer: "<",
+      explanation: "14 - 6 = 8，60 - 50 = 10，8 小于 10，所以填 <。",
+    },
+    {
+      type: "大小比较",
+      question: "22 + 33 ○ 11 + 44，○ 里填什么？",
+      options: textOptions("=", [">", "<", "都不是"], 23),
+      answer: "=",
+      explanation: "22 + 33 = 55，11 + 44 = 55，两边一样大，所以填 =。",
+    },
+    {
+      type: "大小比较",
+      question: "35 + 10 ○ 53 - 10，○ 里填什么？",
+      options: textOptions(">", ["<", "=", "都不是"], 24),
+      answer: ">",
+      explanation: "35 + 10 = 45，53 - 10 = 43，45 大于 43，所以填 >。",
+    },
+    {
+      type: "大小比较",
+      question: "32 + 52 ○ 83 - 52，○ 里填什么？",
+      options: textOptions(">", ["<", "=", "都不是"], 25),
+      answer: ">",
+      explanation: "32 + 52 = 84，83 - 52 = 31，84 大于 31，所以填 >。",
+    },
+    {
+      type: "大小比较",
+      question: "47 - 7 ○ 100 - 50，○ 里填什么？",
+      options: textOptions("<", [">", "=", "都不是"], 26),
+      answer: "<",
+      explanation: "47 - 7 = 40，100 - 50 = 50，40 小于 50，所以填 <。",
+    },
+    {
+      type: "大小比较",
+      question: "15 - 7 ○ 12 - 5，○ 里填什么？",
+      options: textOptions(">", ["<", "=", "都不是"], 27),
+      answer: ">",
+      explanation: "15 - 7 = 8，12 - 5 = 7，8 大于 7，所以填 >。",
+    },
+  ];
+
+  return addIds("paper-number-operation", drafts);
+}
+
 export const questions: MathQuestion[] = [
   ...buildAdditionQuestions(),
   ...buildSubtractionQuestions(),
@@ -576,4 +776,5 @@ export const questions: MathQuestion[] = [
   ...buildObservationQuestions(),
   ...buildShapeQuestions(),
   ...buildWordProblemQuestions(),
+  ...buildExamPaperQuestions(),
 ];

@@ -402,7 +402,7 @@ p {
   vertical-align: baseline;
 }
 
-.pinyin-ruby rt,
+.pinyin-rt,
 .pinyin-spacer {
   color: #6b7c90;
   font-size: 0.38em;
@@ -463,7 +463,8 @@ p {
 }
 
 .feedback {
-  display: flex;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
   gap: 12px;
   align-items: flex-start;
   margin-top: 22px;
@@ -485,7 +486,23 @@ p {
 }
 
 .feedback p {
+  min-width: 0;
   margin: 0;
+}
+
+.feedback .pinyin-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  width: 100%;
+  min-width: 0;
+  column-gap: 0.06em;
+  row-gap: 0.16em;
+}
+
+.feedback .pinyin-ruby,
+.feedback .pinyin-non-hanzi {
+  flex: 0 0 auto;
 }
 
 .feedback-happy {

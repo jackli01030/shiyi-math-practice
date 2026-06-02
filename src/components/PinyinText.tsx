@@ -33,10 +33,12 @@ export function PinyinText({ text, className }: PinyinTextProps) {
       {tokens.map((token, index) => {
         if (token.isZh && token.pinyin) {
           return (
-          <ruby className="pinyin-ruby" key={`${token.origin}-${index}`}>
-            <span className="pinyin-hanzi">{token.origin}</span>
-            <rt>{token.pinyin}</rt>
-          </ruby>
+            <span className="pinyin-ruby" key={`${token.origin}-${index}`}>
+              <span className="pinyin-hanzi">{token.origin}</span>
+              <span className="pinyin-rt" aria-hidden="true">
+                {token.pinyin}
+              </span>
+            </span>
           );
         }
 
