@@ -19,6 +19,18 @@ npm run typecheck  # 检查 TypeScript
 npm run build      # 构建生产版本
 ```
 
+## GitHub Pages 部署
+
+推送到 `main` 分支后，GitHub Actions 会自动运行类型检查和静态构建，并发布到 GitHub Pages。
+
+首次使用时，在 GitHub 仓库的 `Settings` -> `Pages` 中，将 `Build and deployment` 的 `Source` 设为 `GitHub Actions`。部署完成后访问：
+
+```text
+https://jackli01030.github.io/shiyi-math-practice/
+```
+
+这个项目是纯前端静态站点，错题和练习记录仍然只保存在浏览器 `localStorage`。
+
 ## 第一版功能
 
 - 首页：显示“李安岚的数学练习乐园”，提供每日练习、专项练习、错题再练入口。
@@ -112,3 +124,7 @@ src/
 - 给不同题型增加难度等级。
 - 增加每周练习统计。
 - 从课本章节角度整理题库，比如“生活中的数”“加与减”“认识人民币”。
+
+## 许可证
+
+本项目采用 MIT License，详见 [LICENSE](./LICENSE)。
